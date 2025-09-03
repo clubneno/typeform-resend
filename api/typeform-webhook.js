@@ -1,4 +1,3 @@
-
 import { Resend } from "resend";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
@@ -22,7 +21,7 @@ const TEMPLATE_C = `<h2 style="font-family: 'Open Sans', sans-serif;">Dėkojame 
 // Vercel Serverless Function (Node.js)
 export default async function handler(req, res) {
   console.log("=== New Request ===");
-  // Only accept POST
+  // Only accept POST (feel free to change to 200 if you want a friendly GET)
   if (req.method !== "POST") {
     return res.status(405).json({ ok: false, error: "Method Not Allowed" });
   }
@@ -63,23 +62,30 @@ export default async function handler(req, res) {
     let htmlBody = TEMPLATE_A;
     const hasSave = /save/.test(label);
     const hasChild = /vaik/.test(label); // covers "Vaiką"
-
     if (hasSave && hasChild) htmlBody = TEMPLATE_C;
     else if (!hasSave && hasChild) htmlBody = TEMPLATE_B;
-    else htmlBody = TEMPLATE_A;
 
     // 4) Send via Resend (with simple retries for transient network issues)
     let lastErr = null;
     for (const delay of [0, 400, 1000, 2000]) {
       try {
         if (delay) await new Promise((r) => setTimeout(r, delay));
-        const out = await resend.emails.send({
+        const resp = await resend.emails.send({
           from: "Mokslo Sodas <neatsakyti@mokslosodas.lt>",
           to: email,
           subject: "Registracija patvirtinta",
           html: htmlBody,
+          text: "Gavome jūsų atsakymus. Susisieksime netrukus."
         });
-        console.log("Resend OK:", out?.id);
+
+        // Resend SDK v6 returns { data, error }
+        if (resp?.error) {
+          throw resp.error;
+        }
+
+        const id = resp?.data?.id || null;
+        console.info("Resend response:", JSON.stringify(resp, null, 2));
+        console.info("Resend OK:", id);
         return;
       } catch (e) {
         lastErr = e;
@@ -87,6 +93,6 @@ export default async function handler(req, res) {
     }
     console.error("Resend failed after retries:", JSON.stringify(lastErr, null, 2));
   } catch (err) {
-    console.error("Unexpected error:", err);
+    console.error("Unexpected error:", JSON.stringify(err, null, 2));
   }
 }
