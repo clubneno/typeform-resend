@@ -1,0 +1,14 @@
+{
+  "name": "typeform-resend",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "main": "api/typeform-webhook.js",
+  "scripts": {
+    "dev": "vercel dev",
+    "start": "vercel dev"
+  },
+  "dependencies": {
+    "resend": "^6.0.1"
+  }
+}
