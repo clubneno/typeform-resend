@@ -85,7 +85,7 @@ export default async function handler(req, res) {
         lastErr = e;
       }
     }
-    console.error("Resend failed after retries:", lastErr);
+    console.error("Resend failed after retries:", JSON.stringify(lastErr, null, 2));
   } catch (err) {
     console.error("Unexpected error:", err);
   }
