@@ -21,19 +21,17 @@ const TEMPLATE_C = `<h2 style="font-family: 'Open Sans', sans-serif;">Dėkojame 
 // Vercel Serverless Function (Node.js)
 export default async function handler(req, res) {
   console.log("=== New Request ===");
-  // Only accept POST (feel free to change to 200 if you want a friendly GET)
+
+  // Accept POST (optionally allow GET to show 'alive' message)
   if (req.method !== "POST") {
-    return res.status(405).json({ ok: false, error: "Method Not Allowed" });
+    return res.status(200).json({ ok: true, message: "Webhook alive (send POST from Typeform)" });
   }
 
   const payload = req.body;
   console.log("Body:", JSON.stringify(payload, null, 2));
 
-  // 1) ACK Typeform immediately (prevents retries)
-  res.status(200).json({ received: true });
-
   try {
-    // 2) Extract recipient email
+    // 1) Extract recipient email
     const email =
       payload?.form_response?.hidden?.email ||
       payload?.form_response?.answers?.find((a) => a.type === "email")?.email ||
@@ -41,10 +39,10 @@ export default async function handler(req, res) {
 
     if (!email) {
       console.warn("No email in payload; skipping email send.");
-      return;
+      return res.status(200).json({ received: true, email: null });
     }
 
-    // 3) Determine which template to use based on the first multiple_choice
+    // 2) Determine template (based on first multiple_choice)
     const choiceAnswer = payload?.form_response?.answers?.find(
       (a) => a.field?.id === "N1Gmh4M9xD7J" || a.type === "choice" || a.type === "choices"
     );
@@ -65,7 +63,7 @@ export default async function handler(req, res) {
     if (hasSave && hasChild) htmlBody = TEMPLATE_C;
     else if (!hasSave && hasChild) htmlBody = TEMPLATE_B;
 
-    // 4) Send via Resend (with simple retries for transient network issues)
+    // 3) SEND FIRST, then ack — to avoid Vercel freezing the invocation
     let lastErr = null;
     for (const delay of [0, 400, 1000, 2000]) {
       try {
@@ -78,21 +76,26 @@ export default async function handler(req, res) {
           text: "Gavome jūsų atsakymus. Susisieksime netrukus."
         });
 
-        // Resend SDK v6 returns { data, error }
-        if (resp?.error) {
-          throw resp.error;
-        }
+        if (resp?.error) throw resp.error; // SDK v6: { data, error }
 
-        const id = resp?.data?.id || null;
         console.info("Resend response:", JSON.stringify(resp, null, 2));
-        console.info("Resend OK:", id);
-        return;
+        console.info("Resend OK:", resp?.data?.id || null);
+
+        // 4) NOW acknowledge Typeform
+        return res.status(200).json({ received: true, email });
       } catch (e) {
         lastErr = e;
+        console.warn("Resend attempt failed, will retry...", e?.message || e);
       }
     }
+
     console.error("Resend failed after retries:", JSON.stringify(lastErr, null, 2));
+    // Still ack Typeform to avoid retries; log that email failed
+    return res.status(200).json({ received: true, email, sent: false, error: String(lastErr?.message || lastErr) });
+
   } catch (err) {
     console.error("Unexpected error:", JSON.stringify(err, null, 2));
+    // Ack anyway so Typeform doesn't retry endlessly
+    return res.status(200).json({ received: true, error: String(err?.message || err) });
   }
 }
