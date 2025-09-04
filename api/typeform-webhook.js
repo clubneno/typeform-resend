@@ -14,7 +14,7 @@ const TEMPLATE_A = `<!DOCTYPE html>
     <div style="max-width: 600px; margin: 0 auto; background-color: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
         <!-- White header with logo -->
         <div style="background-color: white; padding: 40px 30px; text-align: center; border-bottom: 1px solid #e5e7eb;">
-            <img src="https://raw.githubusercontent.com/clubneno/typeform-resend/main/bendras.png" alt="Mokslo Sodas" style="max-width: 200px; height: auto; margin: 0 auto;" />
+            <img src="https://raw.githubusercontent.com/clubneno/typeform-resend/main/bendras.png" alt="Mokslo Sodas" style="max-width: 140px; height: auto; margin: 0 auto;" />
         </div>
         
         <!-- Main content -->
@@ -41,7 +41,7 @@ const TEMPLATE_A = `<!DOCTYPE html>
         
         <!-- Footer -->
         <div style="background-color: #f9fafb; padding: 20px 30px; text-align: center; border-top: 1px solid #e5e7eb;">
-            <p style="color: #9ca3af; margin: 0; font-size: 14px;">© 2025 Mokslo Sodas. Visos teisės saugomos.</p>
+            <p style="color: #9ca3af; margin: 0; font-size: 14px;">© 2025 UAB Mokslo Sodas. Visos teisės saugomos.</p>
         </div>
     </div>
 </body>
@@ -58,7 +58,7 @@ const TEMPLATE_B = `<!DOCTYPE html>
     <div style="max-width: 600px; margin: 0 auto; background-color: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
         <!-- White header with logo -->
         <div style="background-color: white; padding: 40px 30px; text-align: center; border-bottom: 1px solid #e5e7eb;">
-            <img src="https://raw.githubusercontent.com/clubneno/typeform-resend/main/bendras.png" alt="Mokslo Sodas" style="max-width: 200px; height: auto; margin: 0 auto;" />
+            <img src="https://raw.githubusercontent.com/clubneno/typeform-resend/main/bendras.png" alt="Mokslo Sodas" style="max-width: 140px; height: auto; margin: 0 auto;" />
         </div>
         
         <!-- Main content -->
@@ -85,7 +85,7 @@ const TEMPLATE_B = `<!DOCTYPE html>
         
         <!-- Footer -->
         <div style="background-color: #f9fafb; padding: 20px 30px; text-align: center; border-top: 1px solid #e5e7eb;">
-            <p style="color: #9ca3af; margin: 0; font-size: 14px;">© 2025 Mokslo Sodas. Visos teisės saugomos.</p>
+            <p style="color: #9ca3af; margin: 0; font-size: 14px;">© 2025 UAB Mokslo Sodas. Visos teisės saugomos.</p>
         </div>
     </div>
 </body>
@@ -102,7 +102,7 @@ const TEMPLATE_C = `<!DOCTYPE html>
     <div style="max-width: 600px; margin: 0 auto; background-color: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
         <!-- White header with logo -->
         <div style="background-color: white; padding: 40px 30px; text-align: center; border-bottom: 1px solid #e5e7eb;">
-            <img src="https://raw.githubusercontent.com/clubneno/typeform-resend/main/bendras.png" alt="Mokslo Sodas" style="max-width: 200px; height: auto; margin: 0 auto;" />
+            <img src="https://raw.githubusercontent.com/clubneno/typeform-resend/main/bendras.png" alt="Mokslo Sodas" style="max-width: 140px; height: auto; margin: 0 auto;" />
         </div>
         
         <!-- Main content -->
@@ -129,7 +129,7 @@ const TEMPLATE_C = `<!DOCTYPE html>
         
         <!-- Footer -->
         <div style="background-color: #f9fafb; padding: 20px 30px; text-align: center; border-top: 1px solid #e5e7eb;">
-            <p style="color: #9ca3af; margin: 0; font-size: 14px;">© 2025 Mokslo Sodas. Visos teisės saugomos.</p>
+            <p style="color: #9ca3af; margin: 0; font-size: 14px;">© 2025 UAB Mokslo Sodas. Visos teisės saugomos.</p>
         </div>
     </div>
 </body>
