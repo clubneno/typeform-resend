@@ -1,6 +1,33 @@
 import { Resend } from "resend";
+import crypto from "crypto";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
+
+// Function to verify Typeform webhook signature
+function verifyTypeformSignature(payload, signature, secret) {
+  if (!signature || !secret) {
+    return false;
+  }
+  
+  const expectedSignature = crypto
+    .createHmac('sha256', secret)
+    .update(payload)
+    .digest('hex');
+  
+  return crypto.timingSafeEqual(
+    Buffer.from(signature),
+    Buffer.from(expectedSignature)
+  );
+}
+
+// Function to validate email format
+function isValidEmail(email) {
+  if (!email || typeof email !== 'string') {
+    return false;
+  }
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email.trim());
+}
 
 // Modern HTML email templates with colors and logo
 const TEMPLATE_A = `<!DOCTYPE html>
@@ -183,15 +210,28 @@ const TEMPLATE_D = `<!DOCTYPE html>
 export default async function handler(req, res) {
   console.log("=== New Request ===");
   console.log("Method:", req.method);
-  console.log("Headers:", JSON.stringify(req.headers, null, 2));
 
   // Accept POST (optionally allow GET to show 'alive' message)
   if (req.method !== "POST") {
     return res.status(200).json({ ok: true, message: "Webhook alive (send POST from Typeform)" });
   }
 
+  // Get the raw body for signature verification
+  const rawBody = JSON.stringify(req.body);
+  const signature = req.headers['x-typeform-signature'] || req.headers['typeform-signature'];
+  
+  // Verify webhook signature if secret is configured
+  if (process.env.TYPEFORM_WEBHOOK_SECRET) {
+    if (!verifyTypeformSignature(rawBody, signature, process.env.TYPEFORM_WEBHOOK_SECRET)) {
+      console.warn("Invalid webhook signature - request rejected");
+      return res.status(401).json({ error: "Unauthorized" });
+    }
+    console.log("Webhook signature verified successfully");
+  } else {
+    console.warn("TYPEFORM_WEBHOOK_SECRET not configured - webhook verification disabled");
+  }
+
   const payload = req.body;
-  console.log("Body:", JSON.stringify(payload, null, 2));
 
   // Check if RESEND_API_KEY is set
   if (!process.env.RESEND_API_KEY) {
@@ -224,10 +264,19 @@ export default async function handler(req, res) {
     console.log("Extracted parent email:", parentEmail);
     console.log("Extracted child email:", childEmail);
 
+    // Validate email formats
+    if (parentEmail && !isValidEmail(parentEmail)) {
+      console.warn("Invalid parent email format:", parentEmail);
+      return res.status(400).json({ error: "Invalid parent email format" });
+    }
+    
+    if (childEmail && !isValidEmail(childEmail)) {
+      console.warn("Invalid child email format:", childEmail);
+      return res.status(400).json({ error: "Invalid child email format" });
+    }
+
     if (!parentEmail) {
       console.warn("No parent email in payload; skipping email send.");
-      console.log("Available fields:", Object.keys(payload?.form_response || {}));
-      console.log("Answers:", payload?.form_response?.answers?.map(a => ({ type: a.type, field: a.field?.id })));
       return res.status(200).json({ received: true, parentEmail: null, childEmail, debug: "No parent email found in payload" });
     }
 
