@@ -12,11 +12,12 @@ const TEMPLATE_A = `<!DOCTYPE html>
 </head>
 <body style="margin: 0; padding: 0; background-color: #f8fafc; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
     <div style="max-width: 600px; margin: 0 auto; background-color: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
-        <div style="background: linear-gradient(135deg, #70C040 0%, #5BA832 100%); padding: 40px 30px; text-align: center;">
-            <div style="background-color: rgba(255, 255, 255, 0.15); border-radius: 12px; padding: 20px; margin: 0 auto 20px; display: inline-block; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
-                <div style="color: white; font-size: 24px; font-weight: bold; text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);">MOKSLO SODAS</div>
-            </div>
+        <!-- White header with logo -->
+        <div style="background-color: white; padding: 40px 30px; text-align: center; border-bottom: 1px solid #e5e7eb;">
+            <img src="https://raw.githubusercontent.com/clubneno/typeform-resend/main/bendras.png" alt="Mokslo Sodas" style="max-width: 200px; height: auto; margin: 0 auto;" />
         </div>
+        
+        <!-- Main content -->
         <div style="padding: 40px 30px;">
             <div style="text-align: center; margin-bottom: 30px;">
                 <div style="background-color: #70C040; border-radius: 50%; width: 60px; height: 60px; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center;">
@@ -25,20 +26,22 @@ const TEMPLATE_A = `<!DOCTYPE html>
                 <h2 style="color: #1f2937; margin: 0 0 15px 0; font-size: 24px; font-weight: 600;">Dėkojame už registraciją!</h2>
                 <p style="color: #6b7280; margin: 0; font-size: 16px; line-height: 1.6;">Jūsų registracija anglų kalbos kursams sėkmingai gauta</p>
             </div>
+            
             <div style="background-color: #f0f9f0; border-radius: 8px; padding: 25px; margin: 30px 0; border-left: 4px solid #70C040;">
                 <p style="color: #374151; margin: 0; font-size: 16px; line-height: 1.6;">
                     Jūsų pateikta informacija buvo gauta ir peržiūrima. Netrukus su jumis susisieksime dėl tolesnių žingsnių.
                 </p>
             </div>
+            
             <div style="text-align: center; margin: 30px 0;">
                 <p style="color: #6b7280; margin: 0 0 20px 0; font-size: 16px;">Šilčiausi linkėjimai ir iki greito susitikimo!</p>
-                <div style="background: linear-gradient(135deg, #70C040 0%, #5BA832 100%); border-radius: 8px; padding: 15px; display: inline-block;">
-                    <p style="color: white; margin: 0; font-weight: 600; font-size: 16px;">Mokslo sodo komanda</p>
-                </div>
+                <p style="color: #70C040; margin: 0; font-weight: 600; font-size: 16px;">Mokslo sodo komanda</p>
             </div>
         </div>
+        
+        <!-- Footer -->
         <div style="background-color: #f9fafb; padding: 20px 30px; text-align: center; border-top: 1px solid #e5e7eb;">
-            <p style="color: #9ca3af; margin: 0; font-size: 14px;">© 2024 Mokslo Sodas. Visos teisės saugomos.</p>
+            <p style="color: #9ca3af; margin: 0; font-size: 14px;">© 2025 Mokslo Sodas. Visos teisės saugomos.</p>
         </div>
     </div>
 </body>
@@ -53,11 +56,12 @@ const TEMPLATE_B = `<!DOCTYPE html>
 </head>
 <body style="margin: 0; padding: 0; background-color: #f8fafc; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
     <div style="max-width: 600px; margin: 0 auto; background-color: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
-        <div style="background: linear-gradient(135deg, #70C040 0%, #5BA832 100%); padding: 40px 30px; text-align: center;">
-            <div style="background-color: rgba(255, 255, 255, 0.15); border-radius: 12px; padding: 20px; margin: 0 auto 20px; display: inline-block; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
-                <div style="color: white; font-size: 24px; font-weight: bold; text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);">MOKSLO SODAS</div>
-            </div>
+        <!-- White header with logo -->
+        <div style="background-color: white; padding: 40px 30px; text-align: center; border-bottom: 1px solid #e5e7eb;">
+            <img src="https://raw.githubusercontent.com/clubneno/typeform-resend/main/bendras.png" alt="Mokslo Sodas" style="max-width: 200px; height: auto; margin: 0 auto;" />
         </div>
+        
+        <!-- Main content -->
         <div style="padding: 40px 30px;">
             <div style="text-align: center; margin-bottom: 30px;">
                 <div style="background-color: #70C040; border-radius: 50%; width: 60px; height: 60px; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center;">
@@ -66,20 +70,22 @@ const TEMPLATE_B = `<!DOCTYPE html>
                 <h2 style="color: #1f2937; margin: 0 0 15px 0; font-size: 24px; font-weight: 600;">Dėkojame už vaiko registraciją!</h2>
                 <p style="color: #6b7280; margin: 0; font-size: 16px; line-height: 1.6;">Jūsų vaiko registracija anglų kalbos kursams sėkmingai gauta</p>
             </div>
+            
             <div style="background-color: #f0f9f0; border-radius: 8px; padding: 25px; margin: 30px 0; border-left: 4px solid #70C040;">
                 <p style="color: #374151; margin: 0; font-size: 16px; line-height: 1.6;">
                     Jūsų pateikta informacija buvo gauta ir peržiūrima. Netrukus su jumis susisieksime dėl tolesnių žingsnių anglų kalbos kursuose.
                 </p>
             </div>
+            
             <div style="text-align: center; margin: 30px 0;">
                 <p style="color: #6b7280; margin: 0 0 20px 0; font-size: 16px;">Šilčiausi linkėjimai ir iki greito susitikimo!</p>
-                <div style="background: linear-gradient(135deg, #70C040 0%, #5BA832 100%); border-radius: 8px; padding: 15px; display: inline-block;">
-                    <p style="color: white; margin: 0; font-weight: 600; font-size: 16px;">Mokslo sodo komanda</p>
-                </div>
+                <p style="color: #70C040; margin: 0; font-weight: 600; font-size: 16px;">Mokslo sodo komanda</p>
             </div>
         </div>
+        
+        <!-- Footer -->
         <div style="background-color: #f9fafb; padding: 20px 30px; text-align: center; border-top: 1px solid #e5e7eb;">
-            <p style="color: #9ca3af; margin: 0; font-size: 14px;">© 2024 Mokslo Sodas. Visos teisės saugomos.</p>
+            <p style="color: #9ca3af; margin: 0; font-size: 14px;">© 2025 Mokslo Sodas. Visos teisės saugomos.</p>
         </div>
     </div>
 </body>
@@ -94,11 +100,12 @@ const TEMPLATE_C = `<!DOCTYPE html>
 </head>
 <body style="margin: 0; padding: 0; background-color: #f8fafc; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
     <div style="max-width: 600px; margin: 0 auto; background-color: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
-        <div style="background: linear-gradient(135deg, #70C040 0%, #5BA832 100%); padding: 40px 30px; text-align: center;">
-            <div style="background-color: rgba(255, 255, 255, 0.15); border-radius: 12px; padding: 20px; margin: 0 auto 20px; display: inline-block; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
-                <div style="color: white; font-size: 24px; font-weight: bold; text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);">MOKSLO SODAS</div>
-            </div>
+        <!-- White header with logo -->
+        <div style="background-color: white; padding: 40px 30px; text-align: center; border-bottom: 1px solid #e5e7eb;">
+            <img src="https://raw.githubusercontent.com/clubneno/typeform-resend/main/bendras.png" alt="Mokslo Sodas" style="max-width: 200px; height: auto; margin: 0 auto;" />
         </div>
+        
+        <!-- Main content -->
         <div style="padding: 40px 30px;">
             <div style="text-align: center; margin-bottom: 30px;">
                 <div style="background-color: #70C040; border-radius: 50%; width: 60px; height: 60px; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center;">
@@ -107,20 +114,22 @@ const TEMPLATE_C = `<!DOCTYPE html>
                 <h2 style="color: #1f2937; margin: 0 0 15px 0; font-size: 24px; font-weight: 600;">Dėkojame už registraciją!</h2>
                 <p style="color: #6b7280; margin: 0; font-size: 16px; line-height: 1.6;">Jūsų ir jūsų vaiko registracija anglų kalbos kursams sėkmingai gauta</p>
             </div>
+            
             <div style="background-color: #f0f9f0; border-radius: 8px; padding: 25px; margin: 30px 0; border-left: 4px solid #70C040;">
                 <p style="color: #374151; margin: 0; font-size: 16px; line-height: 1.6;">
                     Jūsų pateikta informacija buvo gauta ir peržiūrima. Netrukus su jumis susisieksime dėl tolesnių žingsnių anglų kalbos kursuose.
                 </p>
             </div>
+            
             <div style="text-align: center; margin: 30px 0;">
                 <p style="color: #6b7280; margin: 0 0 20px 0; font-size: 16px;">Šilčiausi linkėjimai ir iki greito susitikimo!</p>
-                <div style="background: linear-gradient(135deg, #70C040 0%, #5BA832 100%); border-radius: 8px; padding: 15px; display: inline-block;">
-                    <p style="color: white; margin: 0; font-weight: 600; font-size: 16px;">Mokslo sodo komanda</p>
-                </div>
+                <p style="color: #70C040; margin: 0; font-weight: 600; font-size: 16px;">Mokslo sodo komanda</p>
             </div>
         </div>
+        
+        <!-- Footer -->
         <div style="background-color: #f9fafb; padding: 20px 30px; text-align: center; border-top: 1px solid #e5e7eb;">
-            <p style="color: #9ca3af; margin: 0; font-size: 14px;">© 2024 Mokslo Sodas. Visos teisės saugomos.</p>
+            <p style="color: #9ca3af; margin: 0; font-size: 14px;">© 2025 Mokslo Sodas. Visos teisės saugomos.</p>
         </div>
     </div>
 </body>
