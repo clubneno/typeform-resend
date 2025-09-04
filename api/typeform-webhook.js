@@ -2,21 +2,44 @@ import { Resend } from "resend";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-// Simple HTML templates
-const TEMPLATE_A = `<h2 style="font-family: 'Open Sans', sans-serif;">Dėkojame už jūsų registraciją anglų kalbos kursams!</h2>
-<p style="font-family: 'Open Sans', sans-serif;">Jūsų pateikta informacija - gauta. Šią netrukus peržiūrėsime ir jumis susisieksime.</p>
-<p style="font-family: 'Open Sans', sans-serif;">Šilčiausi linkėjimai ir iki greito susitikimo!</p>
-<p style="font-family: 'Open Sans', sans-serif;"><br>Mokslo sodo komanda</br></p>`;
-
-const TEMPLATE_B = `<h2 style="font-family: 'Open Sans', sans-serif;">Dėkojame už jūsų vaiko registraciją anglų kalbos kursams!</h2>
-<p style="font-family: 'Open Sans', sans-serif;">Jūsų pateikta informacija - gauta. Šią netrukus peržiūrėsime ir jumis susisieksime.</p>
-<p style="font-family: 'Open Sans', sans-serif;">Šilčiausi linkėjimai ir iki greito susitikimo!</p>
-<p style="font-family: 'Open Sans', sans-serif;"><br>Mokslo sodo komanda</br></p>`;
-
-const TEMPLATE_C = `<h2 style="font-family: 'Open Sans', sans-serif;">Dėkojame už jūsų ir jūsų vaiko registraciją anglų kalbos kursams!</h2>
-<p style="font-family: 'Open Sans', sans-serif;">Jūsų pateikta informacija - gauta. Šią netrukus peržiūrėsime ir jumis susisieksime.</p>
-<p style="font-family: 'Open Sans', sans-serif;">Šilčiausi linkėjimai ir iki greito susitikimo!</p>
-<p style="font-family: 'Open Sans', sans-serif;"><br>Mokslo sodo komanda</br></p>`;
+// Modern HTML email templates with colors and logo
+const TEMPLATE_A = `
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registracija patvirtinta</title>
+</head>
+<body style="margin: 0; padding: 0; background-color: #f8fafc; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+    <div style="max-width: 600px; margin: 0 auto; background-color: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+        <!-- Header with brand colors -->
+        <div style="background: linear-gradient(135deg, #70C040 0%, #5BA832 100%); padding: 40px 30px; text-align: center;">
+            <div style="background-color: rgba(255, 255, 255, 0.15); border-radius: 12px; padding: 20px; margin: 0 auto 20px; display: inline-block; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+                <div style="color: white; font-size: 24px; font-weight: bold; text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);">MOKSLO SODAS</div>
+            </div>
+        </div>
+        
+        <!-- Main content -->
+        <div style="padding: 40px 30px;">
+            <div style="text-align: center; margin-bottom: 30px;">
+                <div style="background-color: #70C040; border-radius: 50%; width: 60px; height: 60px; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center;">
+                    <span style="font-size: 24px; color: white;">✓</span>
+                </div>
+                <h2 style="color: #1f2937; margin: 0 0 15px 0; font-size: 24px; font-weight: 600;">Dėkojame už registraciją!</h2>
+                <p style="color: #6b7280; margin: 0; font-size: 16px; line-height: 1.6;">Jūsų registracija anglų kalbos kursams sėkmingai gauta</p>
+            </div>
+            
+            <div style="background-color: #f0f9f0; border-radius: 8px; padding: 25px; margin: 30px 0; border-left: 4px solid #70C040;">
+                <p style="color: #374151; margin: 0; font-size: 16px; line-height: 1.6;">
+                    Jūsų pateikta informacija buvo gauta ir peržiūrima. Netrukus su jumis susisieksime dėl tolesnių žingsnių.
+                </p>
+            </div>
+            
+            <div style="text-align: center; margin: 30px 0;">
+                <p style="color: #6b7280; margin: 0 0 20px 0; font-size: 16px;">Šilčiausi linkėjimai ir iki greito susitikimo!</p>
+                <div style="background: linear-gradient(135deg, #70C040 0%, #5BA832 100%); border-radius: 8px; padding: 15px; display: inline-block;">
+                    <p style="color: white; margin: 0; font-weight: 600; font-size: 16px;">Mokslo sodo komanda</p>
 
 // Vercel Serverless Function (Node.js)
 export default async function handler(req, res) {
