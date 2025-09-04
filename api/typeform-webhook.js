@@ -8,7 +8,7 @@ const TEMPLATE_A = `<!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registracija patvirtinta</title>
+    <title>Jūsų registracija patvirtinta</title>
 </head>
 <body style="margin: 0; padding: 0; background-color: #f8fafc; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
     <div style="max-width: 600px; margin: 0 auto; background-color: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
@@ -24,12 +24,12 @@ const TEMPLATE_A = `<!DOCTYPE html>
                     <span style="font-size: 24px; color: white;">✓</span>
                 </div>
                 <h2 style="color: #1f2937; margin: 0 0 15px 0; font-size: 24px; font-weight: 600;">Dėkojame už registraciją!</h2>
-                <p style="color: #6b7280; margin: 0; font-size: 16px; line-height: 1.6;">Jūsų registracija anglų kalbos kursams sėkmingai gauta</p>
+                <p style="color: #6b7280; margin: 0; font-size: 16px; line-height: 1.6;">Jūsų registracija anglų kalbos kursams sėkmingai gauta.</p>
             </div>
             
             <div style="background-color: #f0f9f0; border-radius: 8px; padding: 25px; margin: 30px 0; border-left: 4px solid #70C040;">
                 <p style="color: #374151; margin: 0; font-size: 16px; line-height: 1.6;">
-                    Jūsų pateikta informacija buvo gauta ir peržiūrima. Netrukus su jumis susisieksime dėl tolesnių žingsnių.
+                    Jūsų pateikta informacija - peržiūrima. Artimiausiu metu su jumis susisieksime.
                 </p>
             </div>
             
@@ -52,7 +52,7 @@ const TEMPLATE_B = `<!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vaiko registracija patvirtinta</title>
+    <title>Jūsų vaiko registracija patvirtinta</title>
 </head>
 <body style="margin: 0; padding: 0; background-color: #f8fafc; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
     <div style="max-width: 600px; margin: 0 auto; background-color: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
@@ -68,12 +68,12 @@ const TEMPLATE_B = `<!DOCTYPE html>
                     <span style="font-size: 24px; color: white;">✓</span>
                 </div>
                 <h2 style="color: #1f2937; margin: 0 0 15px 0; font-size: 24px; font-weight: 600;">Dėkojame už vaiko registraciją!</h2>
-                <p style="color: #6b7280; margin: 0; font-size: 16px; line-height: 1.6;">Jūsų vaiko registracija anglų kalbos kursams sėkmingai gauta</p>
+                <p style="color: #6b7280; margin: 0; font-size: 16px; line-height: 1.6;">Jūsų vaiko registracija anglų kalbos kursams sėkmingai gauta.</p>
             </div>
             
             <div style="background-color: #f0f9f0; border-radius: 8px; padding: 25px; margin: 30px 0; border-left: 4px solid #70C040;">
                 <p style="color: #374151; margin: 0; font-size: 16px; line-height: 1.6;">
-                    Jūsų pateikta informacija buvo gauta ir peržiūrima. Netrukus su jumis susisieksime dėl tolesnių žingsnių anglų kalbos kursuose.
+                    Jūsų pateikta informacija - peržiūrima. Artimiausiu metu su jumis susisieksime.
                 </p>
             </div>
             
@@ -96,7 +96,7 @@ const TEMPLATE_C = `<!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registracija patvirtinta</title>
+    <title>Jūsų ir jūsų vaiko registracija patvirtinta</title>
 </head>
 <body style="margin: 0; padding: 0; background-color: #f8fafc; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
     <div style="max-width: 600px; margin: 0 auto; background-color: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
@@ -112,12 +112,12 @@ const TEMPLATE_C = `<!DOCTYPE html>
                     <span style="font-size: 24px; color: white;">✓</span>
                 </div>
                 <h2 style="color: #1f2937; margin: 0 0 15px 0; font-size: 24px; font-weight: 600;">Dėkojame už registraciją!</h2>
-                <p style="color: #6b7280; margin: 0; font-size: 16px; line-height: 1.6;">Jūsų ir jūsų vaiko registracija anglų kalbos kursams sėkmingai gauta</p>
+                <p style="color: #6b7280; margin: 0; font-size: 16px; line-height: 1.6;">Jūsų ir jūsų vaiko registracija anglų kalbos kursams sėkmingai gauta.</p>
             </div>
             
             <div style="background-color: #f0f9f0; border-radius: 8px; padding: 25px; margin: 30px 0; border-left: 4px solid #70C040;">
                 <p style="color: #374151; margin: 0; font-size: 16px; line-height: 1.6;">
-                    Jūsų pateikta informacija buvo gauta ir peržiūrima. Netrukus su jumis susisieksime dėl tolesnių žingsnių anglų kalbos kursuose.
+                    Jūsų pateikta informacija - peržiūrima. Artimiausiu metu su jumis susisieksime.
                 </p>
             </div>
             
@@ -156,12 +156,12 @@ const TEMPLATE_D = `<!DOCTYPE html>
                     <span style="font-size: 24px; color: white;">✓</span>
                 </div>
                 <h2 style="color: #1f2937; margin: 0 0 15px 0; font-size: 24px; font-weight: 600;">Dėkojame!</h2>
-                <p style="color: #6b7280; margin: 0; font-size: 16px; line-height: 1.6;">Vienas iš jūsų tėvų užregistravo jus į anglų kalbos kursus</p>
+                <p style="color: #6b7280; margin: 0; font-size: 16px; line-height: 1.6;">Vienas iš jūsų tėvų užregistravo jus į anglų kalbos kursus.</p>
             </div>
             
             <div style="background-color: #f0f9f0; border-radius: 8px; padding: 25px; margin: 30px 0; border-left: 4px solid #70C040;">
                 <p style="color: #374151; margin: 0; font-size: 16px; line-height: 1.6;">
-                    Jūsų registracija anglų kalbos kursams buvo gauta. Netrukus su jumis susisieksime dėl tolesnių žingsnių.
+                    Pateikta informacija - peržiūrima. Artimiausiu metu su jumis susisieksime.
                 </p>
             </div>
             
