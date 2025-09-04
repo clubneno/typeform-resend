@@ -204,15 +204,21 @@ export default async function handler(req, res) {
 
   try {
     // 1) Extract emails from form responses
+    // Get all email answers to debug
+    const emailAnswers = payload?.form_response?.answers?.filter((a) => a.type === "email") || [];
+    console.log("All email answers:", emailAnswers.map(a => ({ fieldId: a.field?.id, email: a.email })));
+
     // Parent email (question 19) - this is the main email for templates A, B, C
+    // For now, use the first email found as parent email (we'll need to identify the correct field ID)
     const parentEmail = 
       payload?.form_response?.hidden?.email ||
-      payload?.form_response?.answers?.find((a) => a.type === "email")?.email ||
+      emailAnswers[0]?.email ||
       null;
 
     // Child email (question 6) - this is for template D
+    // For now, use the second email found as child email (we'll need to identify the correct field ID)
     const childEmail = 
-      payload?.form_response?.answers?.find((a) => a.type === "email" && a.field?.id === "question_6")?.email ||
+      emailAnswers[1]?.email ||
       null;
 
     console.log("Extracted parent email:", parentEmail);
